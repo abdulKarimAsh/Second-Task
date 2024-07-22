@@ -7,7 +7,7 @@ import {
   CdkDropList,
 } from '@angular/cdk/drag-drop';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { BookService } from '../service/book.service';
+import { BookService } from '../services/book.service';
 import { FormsModule } from '@angular/forms';
 import { InfiniteScrollModule } from "ngx-infinite-scroll";
 import { CommonModule } from '@angular/common';
@@ -51,7 +51,7 @@ export class BookListComponent implements OnInit {
   appendData = () => {
     this.toggleLoading();
     this.service.getAllBook(this.currentPage).subscribe({
-      next: response => this.Books = [...this.Books, ...response]
+      next: response => this.filterBooks = [...this.filterBooks, ...response]
     });
   }
   onScroll = () => {
@@ -83,7 +83,7 @@ export class BookListComponent implements OnInit {
       );
     }
   }
-  changeback(color: string) { 
+  changeback(color: string) {
     this.backgroundColor = color;
-   }
+  }
 }

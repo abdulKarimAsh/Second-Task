@@ -2,7 +2,7 @@
   <h2>Book List</h2>
   <label for="search">Search :</label>
   <input class="filter" name="search" type="text" [(ngModel)]='keyword' />
-  <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="500" (scrolled)="onScroll()"
+  <div infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="20" (scrolled)="onScroll()"
     [scrollWindow]="false" cdkDropList #todoList="cdkDropList" [cdkDropListData]="Books"
     [cdkDropListConnectedTo]="[doneList]" class="list" (cdkDropListDropped)="drop($event)">
     <cdk-virtual-scroll-viewport itemSize="5" class="viewport">
